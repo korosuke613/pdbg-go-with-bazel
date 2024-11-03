@@ -1,4 +1,4 @@
 # go-bazel-playground
 
-pdbg 氏による Zenn Book、[Go with Bazel](https://zenn.dev/pddg/books/go-with-bazel) を試すためのリポジトリです。
+pddg 氏による Zenn Book、[Go with Bazel](https://zenn.dev/pddg/books/go-with-bazel) を試すためのリポジトリです。
 

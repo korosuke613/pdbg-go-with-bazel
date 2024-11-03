@@ -1,0 +1,29 @@
+"""
+This is a playground for developing application with Bazel.
+"""
+
+# このリポジトリの名前とバージョンを宣言する
+module(
+    name = "go-bazel-playground",
+    version = "0.0.1",
+)
+
+# rules_go を利用
+bazel_dep(name = "rules_go", version = "0.50.1", repo_name = "rules_go")
+
+# Go SDK のセットアップ
+go_sdk = use_extension("@rules_go//go:extensions.bzl", "go_sdk")
+
+# 利用する Go version を指定
+go_sdk.download(
+    version = "1.23.2",
+
+    ## 自分でチェックサムを指定できるよ
+    sdks = {
+        "linux_amd64": ("go1.23.2.linux-amd64.tar.gz", "542d3c1705f1c6a1c5a80d5dc62e2e45171af291e755d591c5e6531ef63b454e"),
+        "linux_arm64": ("go1.23.2.linux-arm64.tar.gz", "f626cdd92fc21a88b31c1251f419c17782933a42903db87a174ce74eeecc66a9"),
+        "darwin_amd64": ("go1.23.2.darwin-amd64.tar.gz", "445c0ef19d8692283f4c3a92052cc0568f5a048f4e546105f58e991d4aea54f5"),
+        "darwin_arm64": ("go1.23.2.darwin-arm64.tar.gz", "d87031194fe3e01abdcaf3c7302148ade97a7add6eac3fec26765bcb3207b80f"),
+    }
+)
+

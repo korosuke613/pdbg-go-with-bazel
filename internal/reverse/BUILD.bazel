@@ -4,7 +4,8 @@ go_library(
     name = "reverse",
     srcs = ["string.go"],
     importpath = "github.com/korosuke613/go-bazel-playground/internal/reverse",
-    visibility = ["//apps/hello_world:__pkg__"],
+    #    visibility = ["//apps/hello_world:__pkg__"],
+    visibility = ["//:__subpackages__"],
 )
 
 go_test(
